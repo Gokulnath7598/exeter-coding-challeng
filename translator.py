@@ -1,8 +1,12 @@
+import time
+import tracemalloc
 # module for csv file handling
 import csv
 # module for regex
 import re
+tracemalloc.start()
 try:
+    stime = time.time()
     # File to be Translated
     fin = open("t8.shakespeare.txt", "r")
     data = fin.read()
@@ -45,6 +49,11 @@ try:
         csvwriter.writerow(['English word', 'French word', 'Frequency'])
         csvwriter.writerows(occurance)
     csvfile.close()
+
+    etime = time.time()
+    print(etime-stime)
+    print(tracemalloc.get_traced_memory())
+    tracemalloc.stop()
 
 except Exception as e:
     # in case of any error printed here
