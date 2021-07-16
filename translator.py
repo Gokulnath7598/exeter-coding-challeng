@@ -51,8 +51,8 @@ try:
     csvfile.close()
 
     etime = time.time()
-    print(etime-stime)
-    print(tracemalloc.get_traced_memory())
+    print("Execution time in seconds",etime-stime)
+    print("memory usage(current,maximum)",tracemalloc.get_traced_memory())
     tracemalloc.stop()
 
 except Exception as e:
